@@ -1,0 +1,80 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package lab;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author LAB-USR-ICA
+ */
+public class Ejercicio19 {
+    public static void main(String[] args) {
+    //Datos
+    int tipop, cantp, precio=0;
+    double montoi, descuento=0, montofinal=0;
+    boolean error;
+    char tempo;
+    
+    Scanner scan = new Scanner(System.in);
+    
+        //Ingreso de datos
+        System.out.println("Ingrese el tipo de pantalon [1]Deportivo [2]Casual [3]Elegante: ");
+        tipop = scan.nextInt();
+        
+        System.out.println("Ingrese la cantidad de pantalones a compraro: ");
+        cantp = scan.nextInt();
+        
+        System.out.println("Temporada de [I] Invierno o [V]Verano");
+        tempo = scan.next().charAt(0);
+        
+        //Proceso
+        switch (tipop) {
+            case 1:
+                precio = 50 * cantp;
+                switch (tempo) {
+                    case 'I':
+                        descuento = precio * 0.03;break;
+                    case 'V':
+                        descuento = precio * 0.01;break;
+                    default:
+                        System.out.println("Temporada no existente");
+                }
+                break;
+            case 2:
+                precio = 60 * cantp;
+                switch (tempo) {
+                    case 'I':
+                        descuento = precio * 0.05;break;
+                    case 'V':
+                        descuento = precio * 0.02;break;
+                    default:
+                        System.out.println("Temporada no existente");
+                }
+                break;
+            case 3:
+                precio = 70 * cantp;
+                switch (tempo) {
+                    case 'I':
+                        descuento = precio * 0.07;break;
+                    case 'V':
+                        descuento = precio * 0.03;break;
+                    default:
+                        System.out.println("Temporada no existente");
+                }
+                break;
+            default:
+                System.out.println("Prenda no registrada");
+        }
+        
+        montofinal = precio - descuento ;
+        
+        //Salida de datos
+        System.out.println("El descuento es: "+descuento);
+        System.out.println("El monto final es: "+montofinal);
+        
+        
+    }
+}
